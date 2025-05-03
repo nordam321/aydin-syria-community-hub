@@ -24,6 +24,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'GPA Calculator', path: '/gpa-calculator' },
+    { name: 'Admin', path: '/admin' },
   ];
 
   return (

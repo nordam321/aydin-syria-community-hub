@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import LoginForm from '@/components/admin/LoginForm';
 import AdminDashboard from '@/components/admin/AdminDashboard';
@@ -15,6 +14,9 @@ const Admin = () => {
   
   const handleLogin = (success: boolean) => {
     setIsAuthenticated(success);
+    if (success) {
+      sessionStorage.setItem('adminAuthenticated', 'true');
+    }
   };
   
   // Still loading auth state
