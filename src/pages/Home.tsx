@@ -13,7 +13,7 @@ const Home = () => {
       <Banner />
       <Logo />
       
-      <section className="section bg-white">
+      <section className="section bg-white pt-20">
         <div className="page-container text-center">
           <h2 className="section-title">Welcome to the Syrian Community in Aydın</h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-700 mb-6">

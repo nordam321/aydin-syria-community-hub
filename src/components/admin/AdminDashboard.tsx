@@ -3,11 +3,14 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
-import { ImagePlus, Save, FileText, Users } from "lucide-react";
+import { ImagePlus, Save, FileText, Users, Edit } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('images');
   const { toast } = useToast();
+  const [logoText, setLogoText] = useState("SC");
+  const [logoSubtext, setLogoSubtext] = useState("AYDIN");
   
   const handleLogout = () => {
     sessionStorage.removeItem('adminAuthenticated');
@@ -47,6 +50,46 @@ const AdminDashboard = () => {
         
         <TabsContent value="images">
           <div className="space-y-6">
+            <div>
+              <h2 className="text-xl font-semibold text-syria-green-600 mb-4">Logo Settings</h2>
+              <div className="border rounded-md p-6 mb-6">
+                <div className="flex flex-col md:flex-row gap-6 items-center">
+                  <div className="w-40 h-40 rounded-full bg-syria-green-50 flex items-center justify-center border-4 border-syria-green-200">
+                    <div className="text-center">
+                      <div className="text-syria-green-600 font-bold text-4xl">{logoText}</div>
+                      <div className="text-syria-green-500 text-xs mt-1">{logoSubtext}</div>
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Logo Main Text</label>
+                      <Input 
+                        value={logoText} 
+                        onChange={(e) => setLogoText(e.target.value)}
+                        className="max-w-xs"
+                        maxLength={3}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Logo Subtext</label>
+                      <Input 
+                        value={logoSubtext} 
+                        onChange={(e) => setLogoSubtext(e.target.value)}
+                        className="max-w-xs"
+                        maxLength={10}
+                      />
+                    </div>
+                    <div>
+                      <Button className="bg-syria-green-500 hover:bg-syria-green-600">
+                        <Edit className="mr-2 h-4 w-4" />
+                        Update Logo
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div>
               <h2 className="text-xl font-semibold text-syria-green-600 mb-4">Banner Images</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
