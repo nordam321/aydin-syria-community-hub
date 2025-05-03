@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <Layout>
-      <Logo />
       <Banner />
+      <Logo />
       
       <section className="section bg-white">
         <div className="page-container text-center">
