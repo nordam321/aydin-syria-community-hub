@@ -14,7 +14,189 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      announcements: {
+        Row: {
+          author_id: string | null
+          content: string
+          created_at: string
+          id: string
+          is_important: boolean | null
+          is_published: boolean | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id?: string | null
+          content: string
+          created_at?: string
+          id?: string
+          is_important?: boolean | null
+          is_published?: boolean | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string | null
+          content?: string
+          created_at?: string
+          id?: string
+          is_important?: boolean | null
+          is_published?: boolean | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "announcements_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      community_roles: {
+        Row: {
+          contact_info: Json | null
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean | null
+          responsibilities: string[] | null
+          role_name: string
+          user_id: string | null
+        }
+        Insert: {
+          contact_info?: Json | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          responsibilities?: string[] | null
+          role_name: string
+          user_id?: string | null
+        }
+        Update: {
+          contact_info?: Json | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          responsibilities?: string[] | null
+          role_name?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "community_roles_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          created_at: string
+          current_participants: number | null
+          description: string | null
+          event_date: string
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          location: string | null
+          max_participants: number | null
+          organizer_id: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_participants?: number | null
+          description?: string | null
+          event_date: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          location?: string | null
+          max_participants?: number | null
+          organizer_id?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_participants?: number | null
+          description?: string | null
+          event_date?: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          location?: string | null
+          max_participants?: number | null
+          organizer_id?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_organizer_id_fkey"
+            columns: ["organizer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          city: string | null
+          created_at: string
+          full_name: string
+          id: string
+          is_active: boolean | null
+          major: string | null
+          phone: string | null
+          university: string | null
+          updated_at: string
+          user_id: string
+          year_of_study: number | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          city?: string | null
+          created_at?: string
+          full_name: string
+          id?: string
+          is_active?: boolean | null
+          major?: string | null
+          phone?: string | null
+          university?: string | null
+          updated_at?: string
+          user_id: string
+          year_of_study?: number | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          city?: string | null
+          created_at?: string
+          full_name?: string
+          id?: string
+          is_active?: boolean | null
+          major?: string | null
+          phone?: string | null
+          university?: string | null
+          updated_at?: string
+          user_id?: string
+          year_of_study?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
