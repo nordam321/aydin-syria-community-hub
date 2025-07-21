@@ -21,9 +21,10 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'GPA Calculator', path: '/gpa-calculator' },
+    { name: 'الرئيسية', path: '/' },
+    { name: 'من نحن', path: '/about' },
+    { name: 'حاسبة المعدل', path: '/gpa-calculator' },
+    { name: 'تسجيل/دخول', path: '/auth' },
     { name: 'Admin', path: '/admin' },
   ];
 
